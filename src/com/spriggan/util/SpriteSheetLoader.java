@@ -14,11 +14,11 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 /**
- * Loads Sprite Sheets. Shocker.
+ * Singleton, loads SpriteSheet instances into memory. 
  * @author Rudra Chakraborty
  */
 public class SpriteSheetLoader {
-    private static final Map<String, SpriteSheet> spriteSheets = new HashMap<>();
+    private static final Map<Long, SpriteSheet> spriteSheets = new HashMap<>();
     
     private SpriteSheetLoader() {       
     }

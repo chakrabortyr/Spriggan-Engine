@@ -3,6 +3,7 @@
  *  To change this template file, choose Tools | Templates
  *  and open the template in the editor.
  */
+
 package com.spriggan.util;
 
 import java.awt.image.BufferedImage;
@@ -12,26 +13,26 @@ import java.awt.image.BufferedImage;
  * @author Rudra
  */
 public class SpriteSheet {
-    private String name;
+    private long id;
     private int width;
     private int height;
     private int rows;
     private int columns;
-    BufferedImage sprites[];
+    private BufferedImage sprites[];
 
     /*
      * Creates a new instance of SpriteSheet, all params MUST be initialized properly.
      * 
      * Assumption: All params have qualified values;
-     * @param name The name of the sprite
+     * @param id unique identifier for sprite sheet
      * @param w The width of each sprite in the sheet
      * @param h The height of each sprite in the sheet
      * @param r The number of rows in the sheet
      * @param c The number of columns in the sheet
      * 
      */
-    public SpriteSheet(BufferedImage img, String name, int w, int h, int r, int c) {
-        this.name = name;
+    public SpriteSheet(BufferedImage img, long id, int w, int h, int r, int c) {
+        this.id = ids;
         this.width = w;
         this.height = h;
         this.rows = r;
