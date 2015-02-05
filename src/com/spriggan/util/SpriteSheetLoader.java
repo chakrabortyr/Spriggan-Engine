@@ -14,8 +14,8 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 /**
- * Singleton, loads SpriteSheet instances into memory. 
- * @author Rudra Chakraborty
+ * Singleton, loads SpriteSheet instances into memory. Refers to SPRITE_PATH of spriggan.cfg
+ * @author chakrabortyr
  */
 public class SpriteSheetLoader {
     private static final Map<Long, SpriteSheet> spriteSheets = new HashMap<>();
@@ -31,13 +31,22 @@ public class SpriteSheetLoader {
     */
     public void loadSpriteSheetsFromCfg() throws IOException {
         String absolutePath = new File("").getAbsolutePath();
-        String filePath = "/cfg/spriggan.cfg";
+        String filePath = "/cfg/spriggan.cfg"; //This can never be under any other name! As much as I dislike hardcoding filenames, it's simplest
+                                               //this way. --RC
         BufferedReader reader = new BufferedReader(new FileReader(absolutePath + filePath));
         
         String spritePath = reader.readLine();
         String spritePathReal = spritePath.substring(11, spritePath.length());
         
         System.err.println("Loading sprites from SPRITE_PATH " + spritePathReal);
+        reader.close();
+
+        BufferedReader spriteReader = new BufferedReader(new FileReader(absolutePath + spritePathReal));
+
+        //Adding sprite sheets to our collection
+        while ((String read = spriteReader.readLine()) != null) {
+
+        }
     }
     
     public static final SpriteSheetLoader spriteSheetLoader = new SpriteSheetLoader();
