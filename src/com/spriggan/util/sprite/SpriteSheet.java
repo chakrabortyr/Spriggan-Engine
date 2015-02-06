@@ -1,16 +1,18 @@
 /* SpriteSheet.java
- *  To change this license header, choose License Headers in Project Properties.
- *  To change this template file, choose Tools | Templates
- *  and open the template in the editor.
+ * Pizzapuncher Productions, 2015.
+ * This code is written under what we call the CSL ( Common Sense License ). We believe that code can be learned from,
+ * poorly written or otherwise, and thus we are willing to share. You may use this code for whatever purpose you will, 
+ * but you should do so in good judgement and at your own risk, and with the understanding that we assume no responsibility 
+ * and offer no warranty on this code; we do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.util;
+package com.spriggan.util.sprite;
 
 import java.awt.image.BufferedImage;
 
 /**
  * Type definition for Sprite Sheet
- * @author Rudra
+ * @author chakrabortyr
  */
 public class SpriteSheet {
     private long id;
@@ -32,7 +34,7 @@ public class SpriteSheet {
      * 
      */
     public SpriteSheet(BufferedImage img, long id, int w, int h, int r, int c) {
-        this.id = ids;
+        this.id = id;
         this.width = w;
         this.height = h;
         this.rows = r;

@@ -1,7 +1,15 @@
+/* Entity.java
+ * Pizzapuncher Productions, 2015.
+ * This code is written under what we call the CSL ( Common Sense License ). We believe that code can be learned from,
+ * poorly written or otherwise, and thus we are willing to share. You may use this code for whatever purpose you will, 
+ * but you should do so in good judgement and at your own risk, and with the understanding that we assume no responsibility 
+ * and offer no warranty on this code; we do not even guarantee that it works exactly as advertised.
+ */
+
 package com.spriggan.logic;
 
-import com.spriggan.util.SpriteSheet;
-import com.spriggan.util.SpriteSheetLoader;
+import com.spriggan.util.sprite.SpriteSheet;
+import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
  * The generic class for any being in the game, it has three derived classes, PC, NPC,
