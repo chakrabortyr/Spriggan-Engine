@@ -1,4 +1,4 @@
-/* Client.java
+/* FileHandler.java
  * Pizzapuncher Productions, 2015.
  * This code is written under what we call the CSL ( Common Sense License ). 
  * We believe that code can be learned from, whether brilliantly or poorly written, and thus we are willing to share.
@@ -7,27 +7,28 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.main;
+package com.spriggan.util.io;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 
-import com.spriggan.util.log.Logger;
-import com.spriggan.util.sprite.SpriteSheetLoader;
+import javax.imageio.ImageIO;
 
 /**
- * The Client instance controls everything
+ *
  * @author chakrabortyr
  */
-public class Client {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Logger.logger.Init();
-        
-        
-        Logger.logger.Close();
+public class FileHandler {
+    public String getAbsolutePath() {
+        return new File("").getAbsolutePath();
     }
     
+    public String getCanonicalPath() throws Exception {
+        return new File("").getCanonicalPath();
+    }
+    
+    public static FileHandler fileHandler = new FileHandler();
 }

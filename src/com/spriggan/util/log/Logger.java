@@ -1,17 +1,19 @@
 /* Logger.java
  * Pizzapuncher Productions, 2015.
- * This code is written under what we call the CSL ( Common Sense License ). We believe that code can be learned from,
- * poorly written or otherwise, and thus we are willing to share. You may use this code for whatever purpose you will, 
- * but you should do so in good judgement and at your own risk, and with the understanding that we assume no responsibility 
- * and offer no warranty on this code; we do not even guarantee that it works exactly as advertised.
+ * This code is written under what we call the CSL ( Common Sense License ). 
+ * We believe that code can be learned from, whether brilliantly or poorly written, and thus we are willing to share.
+ * You may use this code for whatever purpose you will, but you should do so in good judgement, at your own risk,
+ * and with the understanding that we assume no responsibility and offer no warranty on this code. 
+ * We do not even guarantee that it works exactly as advertised.
  */
 
 package com.spriggan.util.log;
 
-import java.io.IOException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
+
 
 /**
  *
@@ -39,7 +41,7 @@ public class Logger {
             System.err.println(messageID + ": " + message);
             log.write(messageID + ": " + message);
             messageID++;
-        } catch (IOException writeException) {
+        } catch (IOException IO) {
             System.err.println("Error writing message ID " + (messageID++) + " to logger!");
         }
     }

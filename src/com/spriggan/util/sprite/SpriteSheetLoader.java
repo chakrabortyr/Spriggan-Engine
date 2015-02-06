@@ -1,13 +1,15 @@
 /* SpriteSheetLoader.java
  * Pizzapuncher Productions, 2015.
- * This code is written under what we call the CSL ( Common Sense License ). We believe that code can be learned from,
- * poorly written or otherwise, and thus we are willing to share. You may use this code for whatever purpose you will, 
- * but you should do so in good judgement and at your own risk, and with the understanding that we assume no responsibility 
- * and offer no warranty on this code; we do not even guarantee that it works exactly as advertised.
+ * This code is written under what we call the CSL ( Common Sense License ). 
+ * We believe that code can be learned from, whether brilliantly or poorly written, and thus we are willing to share.
+ * You may use this code for whatever purpose you will, but you should do so in good judgement, at your own risk,
+ * and with the understanding that we assume no responsibility and offer no warranty on this code. 
+ * We do not even guarantee that it works exactly as advertised.
  */
 
 package com.spriggan.util.sprite;
 
+import com.spriggan.util.io.FileHandler;
 import java.awt.image.BufferedImage;
 
 import java.io.BufferedReader;
@@ -40,8 +42,8 @@ public class SpriteSheetLoader {
      * Assumption: SPRITE_PATH variable in spriggan.cfg is properly set, SPRITE_PATH folder
      * has master.dat properly set
     */
-    public void loadSpriteSheetsFromCfg() throws IOException {
-        String absolutePath = new File("").getAbsolutePath();
+    public void loadSprites() throws IOException {
+        String absolutePath = FileHandler.fileHandler.getAbsolutePath();
         String filePath = "/cfg/spriggan.cfg"; //This can never be under any other name! As much as I dislike hardcoding filenames, it's simplest
                                                //this way. --RC
         BufferedReader reader = new BufferedReader(new FileReader(absolutePath + filePath));
@@ -60,7 +62,8 @@ public class SpriteSheetLoader {
         //Adding sprite sheets to our collection
         String read;
         while ((read = spriteReader.readLine()) != null) {
-            ImageIO.read(new File(read));
+            System.err.println(absolutePath + spritePathReal + read);
+            BufferedImage img = ImageIO.read(new File(absolutePath + spritePathReal + read));
         }
     }
     
