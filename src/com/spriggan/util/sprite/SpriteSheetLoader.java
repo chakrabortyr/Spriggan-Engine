@@ -15,14 +15,16 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
 
-import javax.imageio.ImageIO;
-
+import com.spriggan.util.io.FileHandler;
+import com.spriggan.util.io.ImageHandler;
+import com.spriggan.util.io.OSUtils;
 import com.spriggan.util.log.Logger;
 import com.spriggan.util.sprite.SpriteSheet;
 
@@ -42,28 +44,20 @@ public class SpriteSheetLoader {
      * Assumption: SPRITE_PATH variable in spriggan.cfg is properly set, SPRITE_PATH folder
      * has master.dat properly set
     */
-    public void loadSprites() throws IOException {
-        String absolutePath = FileHandler.fileHandler.getAbsolutePath();
-        String filePath = "/cfg/spriggan.cfg"; //This can never be under any other name! As much as I dislike hardcoding filenames, it's simplest
-                                               //this way. --RC
-        BufferedReader reader = new BufferedReader(new FileReader(absolutePath + filePath));
+    public void loadSprites() throws FileNotFoundException, IOException {
+        String spriteInfo = FileHandler.fileHandler.getPathFromSpriggan("SPRITE_PATH");
+        if (!spriteInfo.equals("undef")) {
+            Logger.logger.Write("Retrieving sprites from: " + spriteInfo);
+        } else {
+            Logger.logger.Write("Could not retrieve SPRITE_PATH variable from spriggan.cfg! "
+                    + "Please ensure this value is properly set.");
+        }
         
-        String spritePath = reader.readLine();
-        String spritePathReal = spritePath.substring(12, spritePath.length());
-        
-        try {
-            Logger.logger.Write("Loading sprites from SPRITE_PATH " + spritePathReal);
-        } catch (NullPointerException n) {}
-        
-        reader.close();
-
-        BufferedReader spriteReader = new BufferedReader(new FileReader(absolutePath + spritePathReal + "/master.dat"));
-
-        //Adding sprite sheets to our collection
+        BufferedReader reader = new BufferedReader(new FileReader(FileHandler.getAbsolutePath() + spriteInfo + "sprites.txt"));
         String read;
-        while ((read = spriteReader.readLine()) != null) {
-            System.err.println(absolutePath + spritePathReal + read);
-            BufferedImage img = ImageIO.read(new File(absolutePath + spritePathReal + read));
+        StringBuilder builder = new StringBuilder();
+        
+        while((read = reader.readLine()) != null) {
         }
     }
     

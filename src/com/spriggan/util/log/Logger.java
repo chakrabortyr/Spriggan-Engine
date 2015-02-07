@@ -16,7 +16,7 @@ import java.util.Date;
 
 
 /**
- *
+ * Logger Singleton, writes error messages and debug info to a log file.
  * @author chakrabortyr
  */
 public class Logger {
@@ -32,7 +32,7 @@ public class Logger {
             String stamp = timestamp.toString().replaceAll(" ", "_");
             log = new FileWriter("log_" + stamp + ".log");
         } catch (IOException e) {
-            System.err.println("Error initializing logger!");
+            System.err.println("Error creating logger file!");
         }
     }
     
@@ -41,7 +41,7 @@ public class Logger {
             System.err.println(messageID + ": " + message);
             log.write(messageID + ": " + message);
             messageID++;
-        } catch (IOException IO) {
+        } catch (NullPointerException | IOException E) {
             System.err.println("Error writing message ID " + (messageID++) + " to logger!");
         }
     }
@@ -50,8 +50,8 @@ public class Logger {
         try {
             log.flush();
             log.close();
-        } catch (IOException e) {
-            System.err.println("Error shutting down logger!");
+        } catch (NullPointerException | IOException E) {
+            System.err.println("Error closing logger file! May not have been initialized.");
         }
     }
     

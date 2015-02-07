@@ -44,3 +44,7 @@ Temporary Items
 
 manifest.mf
 build.xml
+
+/build
+/cfg
+/data

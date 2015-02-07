@@ -12,22 +12,58 @@ package com.spriggan.util.io;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 
-import javax.imageio.ImageIO;
+import com.spriggan.util.log.Logger;
 
 /**
- *
+ * FileHandler, takes care of most File I/O, retrieves information from configuration files.
  * @author chakrabortyr
  */
 public class FileHandler {
-    public String getAbsolutePath() {
+    private static File sprigganCfg;
+    
+    private FileHandler() { 
+        sprigganCfg = new File(getAbsolutePath() + "/cfg/spriggan.cfg");
+        
+        if(!sprigganCfg.exists()) {
+            Logger.logger.Write("Could not locate spriggan.cfg!");
+            System.exit(666);
+        }
+    }
+    
+    public String getPathFromSpriggan(String pathName) {
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(sprigganCfg);
+        } catch (FileNotFoundException ex) { } //we should realistically never reach this
+                                               //not finding it already triggers an error      
+        
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            
+            if (line.toLowerCase().contains(pathName.toLowerCase())) {
+                String path = line.replaceAll(pathName + "=", "").trim();
+                return path;
+            }
+        }
+        
+        return "undef";
+    }
+    
+    public static String getAbsolutePath() {
         return new File("").getAbsolutePath();
     }
     
-    public String getCanonicalPath() throws Exception {
+    public static String getCanonicalPath() throws Exception {
         return new File("").getCanonicalPath();
+    }
+    
+    public static String normalizeWindowsPath(String path) {
+        return path.replaceAll("\\/", "\\\\");
     }
     
     public static FileHandler fileHandler = new FileHandler();

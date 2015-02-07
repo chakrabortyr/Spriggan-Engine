@@ -9,6 +9,7 @@
 
 package com.spriggan.main;
 
+import com.spriggan.util.io.OSUtils;
 import java.io.IOException;
 
 import com.spriggan.util.log.Logger;
@@ -25,7 +26,9 @@ public class Client {
      */
     public static void main(String[] args) {
         Logger.logger.Init();
+        OSUtils.osutil.getOS();
         
+        SpriteSheetLoader.spriteSheetLoader.loadSprites();       
         
         Logger.logger.Close();
     }
