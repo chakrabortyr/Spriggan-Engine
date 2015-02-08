@@ -28,7 +28,11 @@ public class Client {
         Logger.logger.Init();
         OSUtils.osutil.getOS();
         
-        SpriteSheetLoader.spriteSheetLoader.loadSprites();       
+        try {
+            SpriteSheetLoader.spriteSheetLoader.loadSprites();       
+        } catch (IOException e) {
+            Logger.logger.Write(e.toString());
+        }
         
         Logger.logger.Close();
     }

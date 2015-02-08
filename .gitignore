@@ -48,3 +48,5 @@ build.xml
 /build
 /cfg
 /data
+*.class
+*.class

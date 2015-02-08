@@ -19,9 +19,9 @@ import com.spriggan.util.sprite.SpriteSheet;
  * @author chakrabortyr
  */
 abstract class Entity {
-    long entityID; // This is always a unique variable! Not to be confused with SpriteSheet ID
-    String name;  // The name of the Entity, usually unique but we don't assume so.
-    SpriteSheet sprite; // Sprite sheet of entity, some will be copies of others, not always unique
+    protected long entityID; // This is always a unique variable! Not to be confused with SpriteSheet ID
+    protected String name;  // The name of the Entity, usually unique but we don't assume so.
+    protected SpriteSheet sprite; // Sprite sheet of entity, some will be copies of others, not always unique
 
     /*
      * Initializes a being into...being. This is overridden in the PC, NPC, Monster classes

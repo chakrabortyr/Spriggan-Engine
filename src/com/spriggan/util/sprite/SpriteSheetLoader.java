@@ -55,10 +55,19 @@ public class SpriteSheetLoader {
         
         BufferedReader reader = new BufferedReader(new FileReader(FileHandler.getAbsolutePath() + spriteInfo + "sprites.txt"));
         String read;
-        StringBuilder builder = new StringBuilder();
         
         while((read = reader.readLine()) != null) {
+            String params [] = read.split("\\,+");
+            long id = Integer.parseInt(params[0]);
+            BufferedImage img = ImageHandler.imageHandler.getImage(FileHandler.getAbsolutePath() + spriteInfo + params[1]);
+            
+            SpriteSheet sheet = new SpriteSheet(img, id, img.getWidth(), img.getHeight(), img.getWidth() / 64, img.getHeight() / 64);          
+            spriteSheets.put(id, sheet);
         }
+    }
+    
+    public SpriteSheet getSprite(long id) {
+        return spriteSheets.get(id);
     }
     
     public static final SpriteSheetLoader spriteSheetLoader = new SpriteSheetLoader();

@@ -9,10 +9,29 @@
 
 package com.spriggan.logic;
 
+import com.spriggan.util.sprite.SpriteSheetLoader;
+
 /**
- *
+ * Derived class of player character and party members. 
  * @author chakrabortyr
  */
-public class PC {
-
+public class PC extends Entity{
+   protected int pcRole;  // What archetype the character fulfills. 0 - 
+   protected int pcLevel; // level of experience
+   protected int pcHealthCurrent; 
+   protected int pcFatigueCurrent;
+   protected int pcManaCurrent;
+   protected int pcHealthMax;
+   protected int pcFatigueMax;
+   protected int pcManaMax;
+   
+   private int pcXPCurrent; // Current experience points
+   private int pcXPNext; // Experience needed for next level
+    
+   @Override
+   public void createEntity(long id, String name, long sID) {
+       this.entityID = id;
+       this.name = name;
+       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
+   }
 }
