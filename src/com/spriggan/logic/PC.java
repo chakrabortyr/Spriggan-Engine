@@ -11,27 +11,27 @@ package com.spriggan.logic;
 
 import com.spriggan.util.sprite.SpriteSheetLoader;
 
+import com.google.gson.Gson;
+
 /**
  * Derived class of player character and party members. 
  * @author chakrabortyr
  */
 public class PC extends Entity{
+   //PC Specific Stats
    protected int pcRole;  // What archetype the character fulfills. 0 - 
    protected int pcLevel; // level of experience
-   protected int pcHealthCurrent; 
-   protected int pcFatigueCurrent;
-   protected int pcManaCurrent;
-   protected int pcHealthMax;
-   protected int pcFatigueMax;
-   protected int pcManaMax;
-   
-   private int pcXPCurrent; // Current experience points
    private int pcXPNext; // Experience needed for next level
-    
+   private int pcSanity; // Maximum fear threshold, hereafter the PC is insane
+   private int pcFatigue; // Maximum stamina threshold, a
+   
+   //Dynamic Stats
+   private int pcCurrentHealth;
+   private int pcCurrentMana;
+   private int pcCurrentSanity;
+   
    @Override
-   public void createEntity(long id, String name, long sID) {
-       this.entityID = id;
-       this.name = name;
-       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
+   public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
+       
    }
 }

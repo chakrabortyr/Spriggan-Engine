@@ -19,9 +19,16 @@ import com.spriggan.util.sprite.SpriteSheet;
  * @author chakrabortyr
  */
 abstract class Entity {
+    //Core External Attributes
     protected long entityID; // This is always a unique variable! Not to be confused with SpriteSheet ID
     protected String name;  // The name of the Entity, usually unique but we don't assume so.
     protected SpriteSheet sprite; // Sprite sheet of entity, some will be copies of others, not always unique
+    
+    //Gameplay Statistics
+    protected int eHealth; // The entity's maximum health
+    protected int eMana; // The entity's maximum mana
+    protected String [] traits; // A series of 3 letter keywords, assist in determining derived stats
+    
 
     /*
      * Initializes a being into...being. This is overridden in the PC, NPC, Monster classes
@@ -31,5 +38,5 @@ abstract class Entity {
      * @param name Entity handle
      * @param sID The spriteSheet ID
      */
-    abstract void createEntity(long id, String name, long sID);
+    abstract void createEntity(long id, String name, long sID, int hp, int mp, String [] traits);
 }
