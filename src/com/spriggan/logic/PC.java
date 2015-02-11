@@ -19,7 +19,8 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  */
 public class PC extends Entity implements Serializable{
    //PC Specific Stats
-   protected int pcRole;  // What archetype the character fulfills. 0 - 
+   protected int pcRole;  // What archetype the character fulfills.
+                          // 0 - Hero (reserved) 1 - Warrior, 2 - Priest, 3 - Rogue
    protected int pcLevel; // level of experience
    private int pcXPNext; // Experience needed for next level
    private int pcSanity; // Maximum fear threshold, hereafter the PC is insane
@@ -33,5 +34,29 @@ public class PC extends Entity implements Serializable{
    @Override
    public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
        
+   }
+   
+   public int pcGetHealth() {
+       return pcCurrentHealth;
+   }
+   
+   public int pcGetMana() {
+       return pcCurrentMana;
+   }
+   
+   public int pcGetSanity() {
+       return pcCurrentSanity;
+   }
+   
+   public boolean pcIsDead() {
+       return pcCurrentHealth == 0;
+   }
+   
+   public boolean pcIsManaBurnt() {
+       return pcCurrentMana == 0;
+   }
+   
+   public boolean pcIsInsane() {
+       return pcCurrentSanity == 0;
    }
 }

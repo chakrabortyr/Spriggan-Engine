@@ -50,3 +50,6 @@ build.xml
 /data
 *.class
 *.class
+*.class
+nbproject/private/private.xml
+nbproject/project.properties
