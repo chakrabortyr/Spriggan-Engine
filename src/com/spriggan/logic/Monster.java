@@ -8,12 +8,16 @@
  */
 package com.spriggan.logic;
 
+import java.io.Serializable;
+
+import com.spriggan.util.sprite.SpriteSheetLoader;
+
 /**
- * Derived class of monsters, we also put NPCs here
+ * Derived class for Monsters.
  *
  * @author chakrabortyr
  */
-public class Monster extends Entity {
+public class Monster extends Entity implements Serializable {
     //Monster specific gameplay stats
     protected int mFear; // How fearful this monster is, impacts PC sanity.  
     protected int mResolve; // How likely the monster is to flee. 0 - Wimpy, 1 - Standard, 2 - Tough, 3 - Ruthless (will not flee)

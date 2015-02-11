@@ -9,15 +9,15 @@
 
 package com.spriggan.logic;
 
-import com.spriggan.util.sprite.SpriteSheetLoader;
+import java.io.Serializable;
 
-import com.google.gson.Gson;
+import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
  * Derived class of player character and party members. 
  * @author chakrabortyr
  */
-public class PC extends Entity{
+public class PC extends Entity implements Serializable{
    //PC Specific Stats
    protected int pcRole;  // What archetype the character fulfills. 0 - 
    protected int pcLevel; // level of experience
