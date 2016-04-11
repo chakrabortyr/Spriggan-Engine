@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/main/Client.java</file>
-            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/logic/Entity.java</file>
+            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/logic/Monster.java</file>
             <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/util/sprite/SpriteSheetLoader.java</file>
-            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/util/log/Logger.java</file>
-            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/util/sprite/SpriteSheet.java</file>
+            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/logic/PC.java</file>
+            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/logic/Party.java</file>
+            <file>file:/C:/Dev/SprigganEngine/src/com/spriggan/logic/NPC.java</file>
         </group>
     </open-files>
 </project-private>

@@ -53,3 +53,4 @@ build.xml
 *.class
 nbproject/private/private.xml
 nbproject/project.properties
+*.class
