@@ -24,7 +24,7 @@ public class PC extends Entity implements Serializable{
    protected int pcLevel; // level of experience
    private int pcXPNext; // Experience needed for next level
    private int pcSanity; // Maximum fear threshold, hereafter the PC is insane
-   private int pcFatigue; // Maximum stamina threshold, a
+   private int pcFatigue; // Maximum stamina threshold, after which the PC is fatigued and suffers attack penalties
    
    //Dynamic Stats
    private int pcCurrentHealth;
@@ -33,7 +33,12 @@ public class PC extends Entity implements Serializable{
    
    @Override
    public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
+       this.entityID = id;
+       this.name = name;
+       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
        
+       this.eHealth = hp;
+       this.eMana = mp;
    }
    
    public int pcGetHealth() {

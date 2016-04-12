@@ -8,8 +8,6 @@
  */
 
 package com.spriggan.util.sprite;
-
-import com.spriggan.util.io.FileHandler;
 import java.awt.image.BufferedImage;
 
 import java.io.BufferedReader;
@@ -26,7 +24,7 @@ import com.spriggan.util.io.FileHandler;
 import com.spriggan.util.io.ImageHandler;
 import com.spriggan.util.io.OSUtils;
 import com.spriggan.util.log.Logger;
-import com.spriggan.util.sprite.SpriteSheet;
+
 
 /**
  * Singleton, loads SpriteSheet instances into memory. Refers to SPRITE_PATH of spriggan.cfg

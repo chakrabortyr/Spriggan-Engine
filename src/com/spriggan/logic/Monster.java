@@ -29,6 +29,8 @@ public class Monster extends Entity implements Serializable {
 
     @Override
     public void createEntity(long id, String name, long sID, int hp, int mp, String[] traits) {
-
+       this.entityID = id;
+       this.name = name;
+       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
     }
 }
