@@ -18,16 +18,23 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  * @author chakrabortyr
  */
 public class NPC extends Entity implements Serializable {
-    
+    //Entity stats
+        private int npcDamage; // Indicates damage this NPC can inflict.
+    private int nResolve; // Indicates likelihood of NPC to flee combat. 0 - Wimpy, 1 - Standard, 2 - Tough, 3 - Ruthless (will not flee)
+
     //Dynamic stats
     private int npcCurrentHealth; // The NPCs current Health.
-    private int npcStatus; // Indicates disposition to party. 1 - Friendly, 2 - Suspicious, 3 - Angry, 4 - Hostile.
-    private int npcDamage; // Indicates damage this NPC can inflict.
-    private int nResolve; // Indicates likelihood of NPC to flee combat. 0 - Wimpy, 1 - Standard, 2 - Tough, 3 - Ruthless (will not flee)
+    private int npcStatus; // Indicates disposition to player. 1 - Friendly, 2 - Suspicious, 3 - Angry, 4 - Hostile.
    
     public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
        this.entityID = id;
        this.name = name;
        this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
+    }
+
+    //NPC specific methods
+
+    public int npcGetCurrentMood() {
+        return this.npcStatus;
     }
 }

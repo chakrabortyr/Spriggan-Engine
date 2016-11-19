@@ -19,8 +19,6 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  */
 public class PC extends Entity implements Serializable{
    //PC Specific Stats
-   protected int pcRole;  // What archetype the character fulfills.
-                          // 0 - Hero (reserved) 1 - Warrior, 2 - Priest, 3 - Rogue
    protected int pcLevel; // level of experience
    private int pcXPNext; // Experience needed for next level
    private int pcSanity; // Maximum fear threshold, hereafter the PC is insane
