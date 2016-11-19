@@ -42,11 +42,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+#All our crap
 manifest.mf
 build.xml
 
-build/**
-cfg/**
-data/**
-nbproject/**
+/build/**
+/cfg/**
+/data/**
+/nbproject/**
 *.class
+.gitignore~
