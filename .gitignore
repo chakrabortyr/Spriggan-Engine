@@ -45,12 +45,8 @@ Temporary Items
 manifest.mf
 build.xml
 
-/build
-/cfg
-/data
-*.class
-*.class
-*.class
-nbproject/private/private.xml
-nbproject/project.properties
+build/**
+cfg/**
+data/**
+nbproject/**
 *.class
