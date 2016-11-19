@@ -44,7 +44,6 @@ Temporary Items
 
 #All our crap
 manifest.mf
-build.xml
 
 /build/**
 /cfg/**
