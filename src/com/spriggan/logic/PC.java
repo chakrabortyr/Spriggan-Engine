@@ -22,7 +22,6 @@ public class PC extends Entity implements Serializable{
    protected int pcLevel; // level of experience
    private int pcXPNext; // Experience needed for next level
    private int pcSanity; // Maximum fear threshold, hereafter the PC is insane
-   private int pcFatigue; // Maximum stamina threshold, after which the PC is fatigued and suffers attack penalties
    
    //Dynamic Stats
    private int pcCurrentHealth;

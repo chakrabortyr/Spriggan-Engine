@@ -19,7 +19,7 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  */
 public class NPC extends Entity implements Serializable {
     //Entity stats
-        private int npcDamage; // Indicates damage this NPC can inflict.
+    private int npcDamage; // Indicates damage this NPC can inflict.
     private int nResolve; // Indicates likelihood of NPC to flee combat. 0 - Wimpy, 1 - Standard, 2 - Tough, 3 - Ruthless (will not flee)
 
     //Dynamic stats

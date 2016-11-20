@@ -10,3 +10,6 @@ mechanics in code. We're also debating a redo in .NET w/MonoGame, currently weig
 repo sometime soon :)
 
 - Rudra
+
+Update to Update: After several hours of debate, we said screw it. We're sticking with Java, however we are working on integrating libGDX into our existing codebase. 
+Should save us a ton of time writing code for animations, particle fx, and input, among other things.
