@@ -16,7 +16,7 @@ package com.spriggan.util.io;
 public class OSUtils {
     private static String operatingSystem; // whatever OS we're running.
     
-    private OSUtils() {
+    public OSUtils() {
         
     }
     
@@ -38,6 +38,4 @@ public class OSUtils {
     public static boolean isUnix() {
         return operatingSystem.contains("nux") || operatingSystem.contains("nix");
     }
-    
-    public static final OSUtils osutil = new OSUtils();
 }

@@ -16,17 +16,23 @@ import com.spriggan.util.log.Logger;
 import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
- * The Client instance controls everything
+ * Client Instances control the entire Application.
  * @author chakrabortyr
  */
 public class Client {
+    
+    public Client() {
+        
+    }
 
     /**
-     * @param args the command line arguments
+     * Launches Logger, OSUtils, and loads up our files.
+     * @author chakrabortyr
      */
-    public static void main(String[] args) {
+    public void Go() {
         Logger.logger.Init();
-        OSUtils.osutil.getOS();
+        OSUtils osUtil = new OSUtils();
+        osUtil.getOS();
         
         try {
             SpriteSheetLoader.spriteSheetLoader.loadSprites();       

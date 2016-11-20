@@ -51,3 +51,4 @@ manifest.mf
 /nbproject/**
 *.class
 .gitignore~
+build.xml
