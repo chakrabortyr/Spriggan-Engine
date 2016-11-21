@@ -16,15 +16,14 @@ import com.spriggan.util.log.Logger;
 import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
- * The Client instance controls everything
+ * The Client controls file IO and logging while the game itself is running
  * @author chakrabortyr
  */
 public class Client {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public Client() {}
+
+    public void Go() {
         Logger.logger.Init();
         OSUtils.osutil.getOS();
         
@@ -33,7 +32,9 @@ public class Client {
         } catch (IOException e) {
             Logger.logger.Write(e.toString());
         }
-        
+    }
+
+    public void Stop() {
         Logger.logger.Close();
     }
     
