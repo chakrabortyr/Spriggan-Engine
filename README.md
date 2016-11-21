@@ -13,3 +13,17 @@ repo sometime soon :)
 
 Update to Update: After several hours of debate, we said screw it. We're sticking with Java, however we are working on integrating libGDX into our existing codebase. 
 Should save us a ton of time writing code for animations, particle fx, and input, among other things.
+
+#Using the Engine
+
+The engine expects a path to a configuration file, which should be a JSON file containing the following parameters:
+
+{
+    "spritePath": "../pathto/sprites",
+    "gamePath": "../pathto/gameLogic/",
+    "gameName": "YourGameName",
+    "windowXRes": 800,
+    "windowYRes": 640
+}
+
+You should specify your configuration path while launching the Spriggan jar file.

@@ -26,11 +26,11 @@ import com.spriggan.util.log.Logger;
 public class FileHandler {
     private static File sprigganCfg;
     
-    private FileHandler() { 
-        sprigganCfg = new File(getAbsolutePath() + "/cfg/spriggan.cfg");
+    public FileHandler(String cfgPath) { 
+        sprigganCfg = new File(getAbsolutePath() + cfgPath); //TODO: Replace with JSON
         
         if(!sprigganCfg.exists()) {
-            Logger.logger.Write("Could not locate spriggan.cfg!");
+            Logger.logger.Write("Could not locate configuration file!");
             System.exit(666);
         }
     }
