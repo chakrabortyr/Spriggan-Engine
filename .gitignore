@@ -46,7 +46,6 @@ Temporary Items
 manifest.mf
 
 /build/**
-/cfg/**
 /data/**
 /nbproject/**
 *.class
