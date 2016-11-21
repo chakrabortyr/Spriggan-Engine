@@ -1,0 +1,7 @@
+{
+    "spritePath": "../data/sprites/",
+    "gamePath": "../data/gameLogic/",
+    "gameName": "Placeholder",
+    "windowXRes": 800,
+    "windowYRes": 640
+}

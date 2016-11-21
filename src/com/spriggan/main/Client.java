@@ -39,7 +39,9 @@ public class Client {
         } catch (IOException e) {
             Logger.logger.Write(e.toString());
         }
-        
+    }
+
+    public void Stop() {
         Logger.logger.Close();
     }
     
