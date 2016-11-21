@@ -65,6 +65,4 @@ public class FileHandler {
     public static String normalizeWindowsPath(String path) {
         return path.replaceAll("\\/", "\\\\");
     }
-    
-    public static FileHandler fileHandler = new FileHandler();
 }

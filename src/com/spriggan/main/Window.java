@@ -7,6 +7,8 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
+package com.spriggan.main;
+
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 
 public class Window {
