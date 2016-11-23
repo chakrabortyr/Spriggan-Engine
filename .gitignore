@@ -47,6 +47,7 @@ manifest.mf
 
 /build/**
 /data/**
+/cfg/**
 /nbproject/**
 *.class
 .gitignore~
