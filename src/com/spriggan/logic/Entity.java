@@ -39,4 +39,9 @@ abstract class Entity {
      * @param sID The spriteSheet ID
      */
     abstract void createEntity(long id, String name, long sID, int hp, int mp, String [] traits);
+
+    /**
+    * Writes an Entity to a JSON object
+    */
+    abstract void writeToJson();
 }

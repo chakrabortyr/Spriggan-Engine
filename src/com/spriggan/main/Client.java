@@ -12,6 +12,16 @@ package com.spriggan.main;
 import com.spriggan.util.io.OSUtils;
 import java.io.IOException;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+import com.google.code.gson.Gson;
+
 import com.spriggan.util.log.Logger;
 import com.spriggan.util.sprite.SpriteSheetLoader;
 
@@ -20,6 +30,7 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  * @author chakrabortyr
  */
 public class Client {
+    private static Configuration sprigganCfg;
     
     public Client() {
         
@@ -35,6 +46,12 @@ public class Client {
         osUtil.getOS();
         
         try {
+            File cfgFile = new File(getAbsolutePath() + cfgPath);
+            FileReader reader = new FileReader(cfgFile);
+
+            Gson gson = new Gson();
+            sprigganCfg = gson.fromJson(reader, Configuration.class);
+
             SpriteSheetLoader.spriteSheetLoader.loadSprites();       
         } catch (IOException e) {
             Logger.logger.Write(e.toString());
@@ -45,4 +62,15 @@ public class Client {
         Logger.logger.Close();
     }
     
+    public String getAbsolutePath() {
+        return new File("").getAbsolutePath();
+    }
+    
+    public String getCanonicalPath() throws Exception {
+        return new File("").getCanonicalPath();
+    }
+    
+    public String normalizeWindowsPath(String path) {
+        return path.replaceAll("\\/", "\\\\");
+    }
 }

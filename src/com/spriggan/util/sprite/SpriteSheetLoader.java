@@ -27,7 +27,7 @@ import com.spriggan.util.log.Logger;
 
 
 /**
- * Singleton, loads SpriteSheet instances into memory. Refers to SPRITE_PATH of spriggan.cfg
+ * Singleton, loads SpriteSheet instances into memory.
  * @author chakrabortyr
  */
 public class SpriteSheetLoader {
