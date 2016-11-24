@@ -52,3 +52,4 @@ manifest.mf
 *.class
 .gitignore~
 build.xml
+*.log

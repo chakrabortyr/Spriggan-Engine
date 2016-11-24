@@ -9,20 +9,15 @@
 
 package com.spriggan.main;
 
-import com.spriggan.util.io.OSUtils;
-import java.io.IOException;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Scanner;
 
-import com.google.code.gson.Gson;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
+import com.spriggan.util.io.Configuration;
 import com.spriggan.util.log.Logger;
+import com.spriggan.util.misc.OSUtils;
 import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
@@ -30,30 +25,34 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  * @author chakrabortyr
  */
 public class Client {
-    private static Configuration sprigganCfg;
+    private Configuration sprigganCfg;
     
     public Client() {
         
+    }
+    
+    public Client getInstance() {
+        return this;
     }
 
     /**
      * Launches Logger, OSUtils, and loads up our files.
      * @author chakrabortyr
+     * @param cfgPath Path to Json configuration file provided by command line
      */
-    public void Go() {
+    public void Go(String cfgPath) {
         Logger.logger.Init();
-        OSUtils osUtil = new OSUtils();
-        osUtil.getOS();
+        OSUtils.getOS();
         
         try {
-            File cfgFile = new File(getAbsolutePath() + cfgPath);
-            FileReader reader = new FileReader(cfgFile);
+            FileReader cfgFile = new FileReader(new File(getAbsolutePath() + cfgPath));
+            JsonReader reader = new JsonReader(cfgFile);
 
             Gson gson = new Gson();
             sprigganCfg = gson.fromJson(reader, Configuration.class);
 
-            SpriteSheetLoader.spriteSheetLoader.loadSprites();       
-        } catch (IOException e) {
+            //SpriteSheetLoader.spriteSheetLoader.loadSprites(sprigganCfg.getSpritePath());       
+        } catch (Exception e) {
             Logger.logger.Write(e.toString());
         }
     }
@@ -62,15 +61,19 @@ public class Client {
         Logger.logger.Close();
     }
     
-    public String getAbsolutePath() {
+    public Configuration getConfig() {
+        return this.sprigganCfg;
+    }
+    
+    public static String getAbsolutePath() {
         return new File("").getAbsolutePath();
     }
     
-    public String getCanonicalPath() throws Exception {
+    public static String getCanonicalPath() throws Exception {
         return new File("").getCanonicalPath();
     }
     
-    public String normalizeWindowsPath(String path) {
+    public static String normalizeWindowsPath(String path) {
         return path.replaceAll("\\/", "\\\\");
     }
 }

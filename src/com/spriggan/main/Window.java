@@ -14,6 +14,10 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 public class Window {
     public static void main(String[] args) {
         //TODO: Add Client + Replace with JSON params
-        new LwjglApplication(new Game(), "Placeholder", 800, 640);
+        Client client = new Client();
+        client.Go(args[0]);
+        
+        LwjglApplication app = new LwjglApplication(new Game(), client.getConfig().getGameName(), client.getConfig().getXRes(), client.getConfig().getYRes());
+
     }
 }

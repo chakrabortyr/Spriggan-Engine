@@ -38,6 +38,9 @@ public class PC extends Entity implements Serializable{
        this.eMana = mp;
    }
    
+    @Override
+    public void writeToJson() { } //TODO: Implement
+   
    public int pcGetHealth() {
        return pcCurrentHealth;
    }

@@ -26,15 +26,21 @@ public class NPC extends Entity implements Serializable {
     private int npcCurrentHealth; // The NPCs current Health.
     private int npcStatus; // Indicates disposition to player. 1 - Friendly, 2 - Suspicious, 3 - Angry, 4 - Hostile.
    
+    @Override
     public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
        this.entityID = id;
        this.name = name;
        this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
     }
+    
+    @Override
+    public void writeToJson() { } //TODO: Implement
 
     //NPC specific methods
 
     public int npcGetCurrentMood() {
         return this.npcStatus;
     }
+    
+   
 }

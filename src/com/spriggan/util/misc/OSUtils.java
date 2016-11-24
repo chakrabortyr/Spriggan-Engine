@@ -7,20 +7,20 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.util.io;
+package com.spriggan.util.misc;
 
 /**
  * Detects current Operating System, behaves accordingly.
  * @author chakrabortyr
  */
-public class OSUtils {
+public final class OSUtils {
     private static String operatingSystem; // whatever OS we're running.
     
-    public OSUtils() {
+    private OSUtils() {
         
     }
     
-    public void getOS() {
+    public static void getOS() {
         operatingSystem = System.getProperty("os.name").toLowerCase();
     }
     

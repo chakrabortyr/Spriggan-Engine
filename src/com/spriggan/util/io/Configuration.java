@@ -12,7 +12,7 @@ package com.spriggan.util.io;
 /**
  *  Takes in Configuration params from JSON file, used by 
  */
-protected class Configuration {
+public class Configuration {
     private static String spritePath;
     private static String gamePath;
     private static String gameName;

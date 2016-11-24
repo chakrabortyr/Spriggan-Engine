@@ -8,21 +8,19 @@
  */
 
 package com.spriggan.util.sprite;
+
 import java.awt.image.BufferedImage;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
 
-import com.spriggan.util.io.FileHandler;
+import com.spriggan.main.Client;
 import com.spriggan.util.io.ImageHandler;
-import com.spriggan.util.io.OSUtils;
 import com.spriggan.util.log.Logger;
 
 
@@ -42,22 +40,22 @@ public class SpriteSheetLoader {
      * Assumption: SPRITE_PATH variable in spriggan.cfg is properly set, SPRITE_PATH folder
      * has master.dat properly set
     */
-    public void loadSprites() throws FileNotFoundException, IOException {
-        String spriteInfo = FileHandler.fileHandler.getPathFromSpriggan("SPRITE_PATH");
-        if (!spriteInfo.equals("undef")) {
-            Logger.logger.Write("Retrieving sprites from: " + spriteInfo);
+    public void loadSprites(String spritePath) throws FileNotFoundException, IOException {
+    
+        if (spritePath == null || spritePath.isEmpty()) {
+            Logger.logger.Write("Retrieving sprites from: " + spritePath);
         } else {
-            Logger.logger.Write("Could not retrieve SPRITE_PATH variable from spriggan.cfg! "
+            Logger.logger.Write("Could not retrieve Sprite Path from Configuration! "
                     + "Please ensure this value is properly set.");
         }
         
-        BufferedReader reader = new BufferedReader(new FileReader(FileHandler.getAbsolutePath() + spriteInfo + "sprites.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(Client.getAbsolutePath() + spritePath + "sprites.txt"));
         String read;
         
         while((read = reader.readLine()) != null) {
             String params [] = read.split("\\,+");
             long id = Integer.parseInt(params[0]);
-            BufferedImage img = ImageHandler.imageHandler.getImage(FileHandler.getAbsolutePath() + spriteInfo + params[1]);
+            BufferedImage img = ImageHandler.imageHandler.getImage(Client.getAbsolutePath() + spritePath + params[1]);
             
             SpriteSheet sheet = new SpriteSheet(img, id, img.getWidth(), img.getHeight(), img.getWidth() / 64, img.getHeight() / 64);          
             spriteSheets.put(id, sheet);
@@ -68,5 +66,8 @@ public class SpriteSheetLoader {
         return spriteSheets.get(id);
     }
     
+    /**
+     * Static instance of SpriteSheetLoader
+     */
     public static final SpriteSheetLoader spriteSheetLoader = new SpriteSheetLoader();
 }

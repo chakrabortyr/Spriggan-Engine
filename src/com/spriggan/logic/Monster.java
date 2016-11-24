@@ -35,6 +35,9 @@ public class Monster extends Entity implements Serializable {
        this.name = name;
        this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
     }
+    
+    @Override
+    public void writeToJson() { } //TODO: Implement
 
     public int mGiveDeathXP() {
         return this.mXPValue;
