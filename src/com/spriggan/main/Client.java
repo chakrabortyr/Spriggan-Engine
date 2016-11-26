@@ -26,6 +26,7 @@ import com.spriggan.util.sprite.SpriteSheetLoader;
  */
 public class Client {
     private Configuration sprigganCfg;
+    private static final Gson gson = new Gson();
     
     public Client() {
         
@@ -47,8 +48,7 @@ public class Client {
         try {
             FileReader cfgFile = new FileReader(new File(getAbsolutePath() + cfgPath));
             JsonReader reader = new JsonReader(cfgFile);
-
-            Gson gson = new Gson();
+            
             sprigganCfg = gson.fromJson(reader, Configuration.class);
 
             //SpriteSheetLoader.spriteSheetLoader.loadSprites(sprigganCfg.getSpritePath());       
