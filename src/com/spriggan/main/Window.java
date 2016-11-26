@@ -10,14 +10,27 @@
 package com.spriggan.main;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.spriggan.util.log.Logger;
 
 public class Window {
     public static void main(String[] args) {
-        //TODO: Add Client + Replace with JSON params
+        if (args[0] == null || args[0].isEmpty()) {
+            Logger.logger.Write("No configuration file specified!");
+            
+            System.exit(666);
+        }
+        
         Client client = new Client();
         client.Go(args[0]);
         
-        LwjglApplication app = new LwjglApplication(new Game(), client.getConfig().getGameName(), client.getConfig().getXRes(), client.getConfig().getYRes());
-
+        LwjglApplication app;
+        
+        try {
+            app = new LwjglApplication(new Game(), client.getConfig().getGameName(), client.getConfig().getXRes(), client.getConfig().getYRes());
+        } catch (Exception e) {
+            Logger.logger.Write(e.getMessage());
+            client.Stop();
+            System.exit(666);
+        }
     }
 }

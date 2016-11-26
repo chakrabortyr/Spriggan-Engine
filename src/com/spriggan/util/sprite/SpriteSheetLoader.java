@@ -9,27 +9,21 @@
 
 package com.spriggan.util.sprite;
 
-import java.awt.image.BufferedImage;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import com.spriggan.main.Client;
-import com.spriggan.util.io.ImageHandler;
 import com.spriggan.util.log.Logger;
 
 
 /**
- * Singleton, loads SpriteSheet instances into memory.
+ * Singleton, loads LegacySprite instances into memory.
  * @author chakrabortyr
  */
 public class SpriteSheetLoader {
-    private static final Map<Long, SpriteSheet> spriteSheets = new HashMap<>();
+    private static final Map<Long, LegacySprite> spriteSheets = new HashMap<>();
     
     private SpriteSheetLoader() {       
     }
@@ -49,20 +43,10 @@ public class SpriteSheetLoader {
                     + "Please ensure this value is properly set.");
         }
         
-        BufferedReader reader = new BufferedReader(new FileReader(Client.getAbsolutePath() + spritePath + "sprites.txt"));
-        String read;
-        
-        while((read = reader.readLine()) != null) {
-            String params [] = read.split("\\,+");
-            long id = Integer.parseInt(params[0]);
-            BufferedImage img = ImageHandler.imageHandler.getImage(Client.getAbsolutePath() + spritePath + params[1]);
-            
-            SpriteSheet sheet = new SpriteSheet(img, id, img.getWidth(), img.getHeight(), img.getWidth() / 64, img.getHeight() / 64);          
-            spriteSheets.put(id, sheet);
-        }
+        //TODO: Implement TextureAtlases
     }
     
-    public SpriteSheet getSprite(long id) {
+    public LegacySprite getSprite(long id) {
         return spriteSheets.get(id);
     }
     

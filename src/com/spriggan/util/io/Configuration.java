@@ -10,14 +10,15 @@
 package com.spriggan.util.io;
 
 /**
- *  Takes in Configuration params from JSON file, used by 
+ *  Takes in Configuration params from JSON file, used by the Client when specifying resolution, game data paths, etc.
+ *  NOTE: Treat spritePath/gamePath/gameName as final, they should never be modified post creation of the game window!
  */
 public class Configuration {
-    private static String spritePath;
-    private static String gamePath;
-    private static String gameName;
+    private String spritePath;
+    private String gamePath;
+    private String gameName;
     private int windowXRes;
-    private int windowYres;
+    private int windowYRes;
 
     public Configuration() {};
 
@@ -38,6 +39,6 @@ public class Configuration {
     }
 
     public int getYRes() {
-        return this.windowYres;
+        return this.windowYRes;
     }
 }

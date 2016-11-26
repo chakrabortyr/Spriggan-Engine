@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 
 /**
  * ImageHandler Singleton, parses images for SpriteSheets, maps, etc.
+ * This class is deprecated.
  * @author chakrabortyr
  */
 public class ImageHandler {

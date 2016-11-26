@@ -9,7 +9,7 @@
 
 package com.spriggan.logic;
 
-import com.spriggan.util.sprite.SpriteSheet;
+import com.spriggan.util.sprite.LegacySprite;
 
 /**
  * The generic class for any being in the game, it has three derived classes, PC, NPC,
@@ -20,9 +20,9 @@ import com.spriggan.util.sprite.SpriteSheet;
  */
 abstract class Entity {
     //Core External Attributes
-    protected long entityID; // This is always a unique variable! Not to be confused with SpriteSheet ID
+    protected long entityID; // This is always a unique variable! Not to be confused with LegacySprite ID
     protected String name;  // The name of the Entity, usually unique but we don't assume so.
-    protected SpriteSheet sprite; // Sprite sheet of entity, some will be copies of others, not always unique
+    protected LegacySprite sprite; // Sprite sheet of entity, some will be copies of others, not always unique
     
     //Gameplay Statistics
     protected int eHealth; // The entity's maximum health

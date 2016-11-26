@@ -1,4 +1,4 @@
-/* SpriteSheet.java
+/* LegacySprite.java
  * Pizzapuncher Productions, 2015.
  * This code is written under what we call the CSL ( Common Sense License ). 
  * We believe that code can be learned from, whether brilliantly or poorly written, and thus we are willing to share.
@@ -12,10 +12,10 @@ package com.spriggan.util.sprite;
 import java.awt.image.BufferedImage;
 
 /**
- * Type definition for Sprite Sheet
+ * Type definition for Sprite Sheet. Deprecated in favor of LibGDX based system.
  * @author chakrabortyr
  */
-public class SpriteSheet {
+public class LegacySprite {
     private long id;
     private int width;
     private int height;
@@ -24,7 +24,7 @@ public class SpriteSheet {
     private BufferedImage sprites[];
 
     /*
-     * Creates a new instance of SpriteSheet, all params MUST be initialized properly.
+     * Creates a new instance of LegacySprite, all params MUST be initialized properly.
      * 
      * Assumption: All params have qualified values;
      * @param id unique identifier for sprite sheet
@@ -34,7 +34,7 @@ public class SpriteSheet {
      * @param c The number of columns in the sheet
      * 
      */
-    public SpriteSheet(BufferedImage img, long id, int w, int h, int r, int c) {
+    public LegacySprite(BufferedImage img, long id, int w, int h, int r, int c) {
         this.id = id;
         this.width = w;
         this.height = h;
