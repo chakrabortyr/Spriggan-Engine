@@ -11,7 +11,7 @@ package com.spriggan.logic;
 
 import java.io.Serializable;
 
-import com.spriggan.util.sprite.SpriteSheetLoader;
+import com.spriggan.util.sprite.SpriteManager;
 
 /**
  * Derived class for NPCs. 
@@ -30,7 +30,7 @@ public class NPC extends Entity implements Serializable {
     public void createEntity(long id, String name, long sID, int hp, int mp, String [] traits) {
        this.entityID = id;
        this.name = name;
-       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
+       this.sprite = SpriteManager.spriteSheetLoader.getSprite(sID);
     }
     
     @Override

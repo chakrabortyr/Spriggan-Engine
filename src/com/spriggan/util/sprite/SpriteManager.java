@@ -1,4 +1,4 @@
-/* SpriteSheetLoader.java
+/* SpriteManager.java
  * Pizzapuncher Productions, 2015.
  * This code is written under what we call the CSL ( Common Sense License ). 
  * We believe that code can be learned from, whether brilliantly or poorly written, and thus we are willing to share.
@@ -19,13 +19,13 @@ import com.spriggan.util.log.Logger;
 
 
 /**
- * Singleton, loads LegacySprite instances into memory.
+ * Singleton, loads SpriteSheet instances into memory.
  * @author chakrabortyr
  */
-public class SpriteSheetLoader {
-    private static final Map<Long, LegacySprite> spriteSheets = new HashMap<>();
+public class SpriteManager {
+    private static final Map<Long, SpriteSheet> spriteSheets = new HashMap<>();
     
-    private SpriteSheetLoader() {       
+    private SpriteManager() {       
     }
     
     /*
@@ -46,12 +46,12 @@ public class SpriteSheetLoader {
         //TODO: Implement TextureAtlases
     }
     
-    public LegacySprite getSprite(long id) {
+    public SpriteSheet getSprite(long id) {
         return spriteSheets.get(id);
     }
     
     /**
-     * Static instance of SpriteSheetLoader
+     * Static instance of SpriteManager
      */
-    public static final SpriteSheetLoader spriteSheetLoader = new SpriteSheetLoader();
+    public static final SpriteManager spriteManager = new SpriteManager();
 }
