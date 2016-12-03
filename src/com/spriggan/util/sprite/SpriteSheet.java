@@ -97,9 +97,11 @@ public class SpriteSheet extends Group {
     }
     
     private final SpriteActor actor;
+    private final long id;
 
-    public SpriteSheet(TextureRegion tex, int rows, int cols, float timePerFrame, boolean loop) {
+    public SpriteSheet(long id, TextureRegion tex, int rows, int cols, float timePerFrame, boolean loop) {
         this.actor = new SpriteActor(tex, rows, cols, timePerFrame, loop);
+        this.id = id;
 
         this.setWidth(this.actor.getWidth());
         this.setHeight(this.actor.getHeight());

@@ -46,9 +46,11 @@ public class Placeable extends Group{
     }
     
     private final PlaceableActor actor;
+    private final long id;
     
-    public Placeable(TextureRegion texture) {
+    public Placeable(TextureRegion texture, long id) {
         this.actor = new PlaceableActor(texture);
+        this.id = id;
         
         this.setWidth(this.actor.getWidth());
         this.setHeight(this.actor.getHeight());

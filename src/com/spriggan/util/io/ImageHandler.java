@@ -9,7 +9,6 @@
 
 package com.spriggan.util.io;
 
-import com.spriggan.util.log.Logger;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

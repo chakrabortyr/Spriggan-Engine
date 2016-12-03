@@ -18,7 +18,6 @@ import com.google.gson.stream.JsonReader;
 import com.spriggan.util.io.Configuration;
 import com.spriggan.util.log.Logger;
 import com.spriggan.util.misc.OSUtils;
-import com.spriggan.util.sprite.SpriteManager;
 
 /**
  * Client Instances control the entire Application.
