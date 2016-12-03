@@ -25,7 +25,7 @@ import com.spriggan.util.misc.OSUtils;
  */
 public class Client {
     private Configuration sprigganCfg;
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new Gson(); //TODO: Replace with static JSON handler that wraps GSON, if possible
     
     public Client() {
         
@@ -44,13 +44,8 @@ public class Client {
         Logger.logger.Init();
         OSUtils.getOS();
         
-        try {
-            FileReader cfgFile = new FileReader(new File(getAbsolutePath() + cfgPath));
-            JsonReader reader = new JsonReader(cfgFile);
-            
-            sprigganCfg = gson.fromJson(reader, Configuration.class);
-
-            //SpriteSheetLoader.spriteSheetLoader.loadSprites(sprigganCfg.getSpritePath());       
+        try {       
+            sprigganCfg = gson.fromJson(new JsonReader(new FileReader(new File(getAbsolutePath() + cfgPath))), Configuration.class);      
         } catch (Exception e) {
             Logger.logger.Write(e.toString());
         }

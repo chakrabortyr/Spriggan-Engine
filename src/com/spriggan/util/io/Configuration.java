@@ -9,11 +9,13 @@
 
 package com.spriggan.util.io;
 
+import java.io.Serializable;
+
 /**
  *  Takes in Configuration params from JSON file, used by the Client when specifying resolution, game data paths, etc.
  *  NOTE: Treat spritePath/gamePath/gameName as final, they should never be modified post creation of the game window!
  */
-public class Configuration {
+public class Configuration implements Serializable {
     private String spritePath;
     private String gamePath;
     private String gameName;

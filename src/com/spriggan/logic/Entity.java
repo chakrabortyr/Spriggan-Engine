@@ -9,7 +9,7 @@
 
 package com.spriggan.logic;
 
-import com.spriggan.util.sprite.LegacySprite;
+import com.spriggan.sprite.LegacySprite;
 
 /**
  * The generic class for any being in the game, it has three derived classes, PC, NPC,

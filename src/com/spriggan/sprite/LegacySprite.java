@@ -7,7 +7,7 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.util.sprite;
+package com.spriggan.sprite;
 
 import java.awt.image.BufferedImage;
 

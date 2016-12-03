@@ -7,7 +7,7 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.util.sprite;
+package com.spriggan.sprite;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -97,9 +97,9 @@ public class SpriteSheet extends Group {
     }
     
     private final SpriteActor actor;
-    private final long id;
+    private final String id;
 
-    public SpriteSheet(long id, TextureRegion tex, int rows, int cols, float timePerFrame, boolean loop) {
+    public SpriteSheet(String id, TextureRegion tex, int rows, int cols, float timePerFrame, boolean loop) {
         this.actor = new SpriteActor(tex, rows, cols, timePerFrame, loop);
         this.id = id;
 

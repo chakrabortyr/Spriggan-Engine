@@ -12,7 +12,14 @@ package com.spriggan.logic;
 import java.util.Map;
 import java.util.HashMap;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
+
+import com.spriggan.sprite.SpriteHandle;
+import com.spriggan.sprite.SpriteSheet;
+import com.spriggan.sprite.Placeable;
 
 /**
  * ActorManager
@@ -20,7 +27,21 @@ import com.badlogic.gdx.scenes.scene2d.Group;
  * @author chakrabortyr
  */
 public final class ActorManager {
-    private static final Map<Long, Group> actors = new HashMap();
+    private static final Map<String, Group> actors = new HashMap();
     
+    public void insertActor(SpriteHandle handle) {
+        TextureRegion tex = new TextureRegion(new Texture(Gdx.files.internal(handle.filePath)));
+
+        if (handle.dynamic) {
+            SpriteSheet sheet = new SpriteSheet(handle.id, tex, handle.rows, handle.columns, handle.timePerFrame, handle.loop);
+            actors.put(handle.id, sheet);
+        } else {
+            Placeable place = new Placeable(handle.id, tex);
+            actors.put(handle.id, place); // put you in your place. heh.
+        }
+    }
     
+    public Group getActor(String id) {
+        return actors.get(id);
+    }
 }

@@ -7,7 +7,7 @@
  * We do not even guarantee that it works exactly as advertised.
  */
 
-package com.spriggan.util.sprite;
+package com.spriggan.sprite;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -46,9 +46,9 @@ public class Placeable extends Group{
     }
     
     private final PlaceableActor actor;
-    private final long id;
+    private final String id;
     
-    public Placeable(TextureRegion texture, long id) {
+    public Placeable(String id, TextureRegion texture) {
         this.actor = new PlaceableActor(texture);
         this.id = id;
         
