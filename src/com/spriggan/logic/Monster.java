@@ -10,7 +10,6 @@ package com.spriggan.logic;
 
 import java.io.Serializable;
 
-import com.spriggan.util.sprite.SpriteSheetLoader;
 
 /**
  * Derived class for Monsters.
@@ -33,7 +32,7 @@ public class Monster extends Entity implements Serializable {
     public void createEntity(long id, String name, long sID, int hp, int mp, String[] traits) {
        this.entityID = id;
        this.name = name;
-       this.sprite = SpriteSheetLoader.spriteSheetLoader.getSprite(sID);
+       this.sprite = null; //TODO: Replace
     }
     
     @Override
