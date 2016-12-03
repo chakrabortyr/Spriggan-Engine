@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  * SpriteHandle
- *
+ * Defines all parameters for this Sprite
  * @author chakrabortyr
  */
 public class SpriteHandle implements Serializable {
