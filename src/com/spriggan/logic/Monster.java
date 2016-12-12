@@ -10,7 +10,6 @@ package com.spriggan.logic;
 
 import java.io.Serializable;
 
-
 /**
  * Derived class for Monsters.
  *
