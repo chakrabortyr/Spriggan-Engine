@@ -44,6 +44,8 @@ Temporary Items
 
 #All our crap
 manifest.mf
+launch.json
+settings.json
 
 /build/**
 /data/**
