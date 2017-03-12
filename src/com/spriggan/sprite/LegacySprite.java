@@ -12,6 +12,7 @@ package com.spriggan.sprite;
 import java.awt.image.BufferedImage;
 
 /**
+ * @deprecated
  * Type definition for Sprite Sheet. Deprecated in favor of LibGDX based system.
  * @author chakrabortyr
  */

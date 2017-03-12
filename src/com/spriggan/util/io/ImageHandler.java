@@ -16,6 +16,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
+ * @deprecated
  * ImageHandler Singleton, parses images for SpriteSheets, maps, etc.
  * This class is deprecated.
  * @author chakrabortyr

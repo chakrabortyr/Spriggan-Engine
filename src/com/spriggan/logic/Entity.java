@@ -5,6 +5,8 @@
 
 package com.spriggan.logic;
 
+import java.lang.Character.Subset;
+
 import com.spriggan.sprite.SpriteSheet;
 
 /**
@@ -15,6 +17,28 @@ import com.spriggan.sprite.SpriteSheet;
  * @author chakrabortyr
  */
 abstract class Entity {
+
+    /**
+     * Implementation of Trait mechanic
+     *
+     * @author chakrabortyr
+     */
+    private class Trait implements Serializable {
+        private int category; // 0 - Strength, 1 - Weakness, 2 - Immunity
+        private int type; // 0 - Healing/Damage, 1 - Status Ailment, 2 - Critical Chance       
+        private String subType; // FIRE, ICE, MAGIC, WEAPON, FEAR, STUN, SLOW, POISON, FREEZE, IMMOLATE
+        private float amount; // Amount to tack on of subtype, if applicable
+        private boolean percentage; // Whether to read amounts as flat or as a percentage 
+
+        public Trait (int cat, int type, String sub, float amt, boolean flat) {
+            this.category = cat;
+            this.type = type;
+            this.subType = sub;
+            this.amount = amt;
+            this.percentage = flat;
+        }
+    }
+
    //Core External Attributes
    protected String name; // The name of the Entity, usually unique but we don't assume so.
    protected SpriteSheet spriteBase; // Sprite sheet of entity, some will be copies of others, not always unique
